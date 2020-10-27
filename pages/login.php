@@ -6,8 +6,8 @@ if (isset($_POST['user']) || isset($_POST['pass'])) {
   $user = new User();
 
   $userLogin = [
-    'login'=>$_POST['user'],
-    'pass'=>$_POST['pass']
+    'login' => $_POST['user'],
+    'pass' => md5($_POST['pass'])
   ];
   $res = $user->login($userLogin);
 }
@@ -48,7 +48,7 @@ if (isset($_POST['user']) || isset($_POST['pass'])) {
                   <p class="card-category">Clique aqui para <strong><a href="./register.php">Cadastrar</a><strong></p>
                 </div>
                 <div class="card-body">
-                  <form id="form" method="POST" >
+                  <form id="form" method="POST">
                     <div class="form-group">
                       <label for="weight" class="bmd-label-floating">Usuário</label>
                       <input type="text" class="form-control" name="user" required placeholder="Digite seu usuário">
@@ -61,10 +61,10 @@ if (isset($_POST['user']) || isset($_POST['pass'])) {
                   </form>
                   <?php
                   $display = 'display:none';
-                   if(!empty($res)){
+                  if (!empty($res)) {
                     $display = 'display:block;';
-                  }?>
-                  <div class="alert alert-danger m-2" id="res" style='<?php echo $display; ?>' ><?php echo $res;?></div>
+                  } ?>
+                  <div class="alert alert-danger m-2" id="res" style='<?php echo $display; ?>'><?php echo $res; ?></div>
                 </div>
               </div>
             </div>
@@ -74,4 +74,5 @@ if (isset($_POST['user']) || isset($_POST['pass'])) {
     </div>
   </div>
 </body>
+
 </html>
