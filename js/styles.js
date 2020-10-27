@@ -7,8 +7,12 @@ $(document).ready(() => {
         handleClickButton(weight, height);
         event.preventDefault();
     });
-});
 
+    $('#logout').click(function (){
+        document.location.href = '../index.php';
+    });
+
+});
 const handleClickButton = (weight, height) => {
 
     let res = $('#res');
@@ -22,3 +26,4 @@ const handleClickButton = (weight, height) => {
 const calcIMC = (height, weight) => {
     return weight / (height * height);
 }
+
